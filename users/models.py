@@ -5,21 +5,34 @@ from django.db import models
 from django.db import models
 
 class UserProfile(models.Model):
-    # Connect this profile to Django's built-in User model
+    
     from django.contrib.auth.models import User
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    # Extra fields for your user profile
+    
     bio = models.TextField(blank=True)
     birth_date = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return self.user.username
+    
+class Wand(models.Model):
+    wood = models.CharField(max_length=100)
+    core = models.CharField(max_length=100)
+    length = models.FloatField(help_text="Length in inches")
 
-"""What this does:
-Links your profile to the built-in User (OneToOneField means one profile per user)
+    def __str__(self):
+        return f"{self.length}\" {self.wood} with {self.core} core"
 
-Adds optional bio and birth date fields
+class Creature(models.Model):
+    name = models.CharField(max_length=100)
+    type = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
 
-__str__ method returns the username for easy identification"""
+    def __str__(self):
+        return self.name
+
+"""WHAT THIS DOES BICHES :
+
+Cria classes para o perfil das pessoas, varinhas e criaturas , falta adicionar ainda muita coisa aqui mas nao tenho mais tempo hoje"""
 

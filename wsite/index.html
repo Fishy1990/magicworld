@@ -1,14 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wizarding World</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
 
   <!-- Button group fixed in top-right -->
@@ -17,24 +14,54 @@
     <a href="#" class="btn">Create Account</a>
   </div>
 
-  <div class="overlay">
-    <h1>Welcome to MagiVerse</h1>
-  </div>
+ <div class="overlay">
+  <h1 id="welcome-text">Welcome to MagiVerse</h1>
+</div>
+
 
   <footer>
-    <div class="bottom-image">
-      <img src="./imgs/darshan-gavali-NYsxhg43RvE-unsplash.jpg" alt="Icon 1" />
-      <img src="./imgs/artem-maltsev-3n7DdlkMfEg-unsplash.jpg" alt="Icon 2" />
-      <img src="./imgs/shayna-douglas--EwOTtOcReM-unsplash.jpg" alt="Icon 3" />
-      <img src="./imgs/melanfolia--c1k47H1Reg-unsplash.jpg" alt="Icon 4" />
-    </div>
-  </footer>
+  <div class="bottom-image">
 
-  <!-- Cursor script -->
+    <div class="image-wrapper">
+      <a href="houses.html">
+        <img src="./imgs/darshan-gavali-NYsxhg43RvE-unsplash.jpg" alt="Houses" />
+        <span class="tooltip">Hogwarts Houses</span>
+      </a>
+    </div>
+
+    <div class="image-wrapper">
+      <a href="wands.html">
+        <img src="./imgs/artem-maltsev-3n7DdlkMfEg-unsplash.jpg" alt="Wands" />
+        <span class="tooltip">Magical Wands</span>
+      </a>
+    </div>
+
+    <div class="image-wrapper">
+      <a href="creatures.html">
+        <img src="./imgs/shayna-douglas--EwOTtOcReM-unsplash.jpg" alt="Creatures" />
+        <span class="tooltip">Magical Creatures</span>
+      </a>
+    </div>
+
+    <div class="image-wrapper">
+      <a href="spells.html">
+        <img src="./imgs/melanfolia--c1k47H1Reg-unsplash.jpg" alt="Spells" />
+        <span class="tooltip">Wizarding Spells</span>
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+
+  <!-- Fade-in on page load -->
   <script>
-    window.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('fade-in');
+
+      // Wand cursor
       const wand = document.createElement("img");
-      wand.src = "wand2.png";
+      wand.src = "./imgs/wand2.png";
       wand.alt = "wand cursor";
       wand.style.position = "fixed";
       wand.style.width = "40px";
@@ -65,6 +92,6 @@
     });
   </script>
 
-</body>
 
+</body>
 </html>

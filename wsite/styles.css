@@ -1,0 +1,169 @@
+@font-face {
+  font-family: 'HarryPotter';
+  src: url('./fonts/harryp.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* Vertically center content */
+  align-items: center;       /* Horizontally center content */
+  margin: 0;
+  padding: 0;
+  background-image: url('./imgs/tuyen-vo-tS-jh0M6JoA-unsplash.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'HarryPotter', sans-serif;
+  cursor: none;
+  letter-spacing: 2px;
+}
+
+h1 {
+  color: #f5f5f5;
+  font-size: 8rem;
+  text-shadow: 0 0 3px #44444433; /* faint subtle shadow */
+  position: relative;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  z-index: 1;
+}
+
+.overlay {
+  padding-top: 0;      /* reduce top padding */
+  margin-top: -400px;   /* pull it up */
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+  padding: 2rem 4rem;
+ 
+  text-align: center;
+
+}
+
+h1:hover {
+  transform: scale(1.08);
+  text-shadow: 
+    0 0 10px #ffd700,
+    0 0 20px #ffae00,
+    0 0 30px #ffaa00;
+}
+
+/* Sparkle effect */
+h1::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,215,0,0.6) 0%, transparent 80%);
+  opacity: 0;
+  pointer-events: none;
+  animation: sparkle 3s ease-in-out;
+  z-index: -1;
+}
+
+h1:hover::after {
+  opacity: 1;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.4);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.6;
+  }
+}
+
+.button-group {
+  position: fixed;     /* Fixes position relative to viewport */
+  top: 20px;           /* Distance from top */
+  right: 20px;          /* Distance from right */
+  display: flex;
+  flex-direction: column;  /* Stack buttons vertically */
+  gap: 20px;              /* Space between buttons */
+  z-index: 10000;         /* Make sure buttons stay on top */
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4a2e0f; /* Dark wizard-y brown */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #6b4c1a;  /* Slightly lighter on hover */
+}
+
+
+.btn:hover {
+  background-color: #c28f2e;
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0 0 10px 3px rgba(194, 143, 46, 0.8); /* warm golden glow */
+}/
+}
+
+
+
+.bottom-image {
+  display: flex;                 /* Flexbox lays them side by side */
+  justify-content: center;      /* Center all images horizontally */
+  align-items: center;          /* Vertically align (if different heights) */
+  gap: 20px;                    /* Space between images */
+  flex-wrap: wrap;              /* Allows wrapping on small screens */
+}
+
+.bottom-image img {
+  width: 250px;                  /* Size of each image */
+  height: 150px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.bottom-image img:hover {
+  transform: scale(1.1);        /* Slight grow effect on hover */
+}
+
+.bottom-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+  z-index: 10;
+}
+footer {
+  background-color: rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(3px);
+  width: 100%;
+  padding: 20px 0;
+  position: relative; /* keep normal flow */
+}
+
+.bottom-image img:hover {
+  transform: scale(1.3); /* your existing scale effect */
+  box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.7); /* golden glow */
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.7)); /* subtle shadow glow */
+}

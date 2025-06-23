@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wizarding World</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Button group fixed in top-right -->
+  <div class="button-group">
+    <a href="#" class="btn">Login</a>
+    <a href="#" class="btn">Create Account</a>
+  </div>
+
+  <div class="overlay">
+    <h1>Welcome to MagiVerse</h1>
+  </div>
+
+  <footer>
+    <div class="bottom-image">
+      <img src="./imgs/darshan-gavali-NYsxhg43RvE-unsplash.jpg" alt="Icon 1" />
+      <img src="./imgs/artem-maltsev-3n7DdlkMfEg-unsplash.jpg" alt="Icon 2" />
+      <img src="./imgs/shayna-douglas--EwOTtOcReM-unsplash.jpg" alt="Icon 3" />
+      <img src="./imgs/melanfolia--c1k47H1Reg-unsplash.jpg" alt="Icon 4" />
+    </div>
+  </footer>
+
+  <!-- Cursor script -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const wand = document.createElement("img");
+      wand.src = "wand2.png";
+      wand.alt = "wand cursor";
+      wand.style.position = "fixed";
+      wand.style.width = "40px";
+      wand.style.height = "auto";
+      wand.style.pointerEvents = "none";
+      wand.style.zIndex = "9999";
+      wand.style.transition = "transform 0.05s linear";
+      document.body.appendChild(wand);
+
+      document.addEventListener("mousemove", (e) => {
+        wand.style.left = `${e.clientX}px`;
+        wand.style.top = `${e.clientY}px`;
+
+        const sparkle = document.createElement("div");
+        sparkle.style.position = "fixed";
+        sparkle.style.left = `${e.clientX + Math.random() * 10 - 1}px`;
+        sparkle.style.top = `${e.clientY + Math.random() * 10 - 1}px`;
+        sparkle.style.width = "6px";
+        sparkle.style.height = "6px";
+        sparkle.style.borderRadius = "50%";
+        sparkle.style.background = "radial-gradient(circle, #fffacd, #f0e130)";
+        sparkle.style.opacity = "0.8";
+        sparkle.style.pointerEvents = "none";
+        sparkle.style.zIndex = "9998";
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 300);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

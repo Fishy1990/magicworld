@@ -5,220 +5,220 @@
   font-style: normal;
 }
 
+main {
+  flex: 1;
+}
+
 body {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;   /* Vertically center content */
-  align-items: center;       /* Horizontally center content */
   margin: 0;
   padding: 0;
-  background-image: url('./imgs/tuyen-vo-tS-jh0M6JoA-unsplash.jpg'); 
+  display: flex;
+  flex-direction: column;
+  background-image: url('./imgs/tuyen-vo-tS-jh0M6JoA-unsplash.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   font-family: 'HarryPotter', sans-serif;
-  cursor: none;
   letter-spacing: 2px;
+  cursor: none;
+  overflow-x: hidden; /* Prevent horizontal scroll caused by scaling */
+}
 
+.header-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 30px;    /* Adjust as needed */
+  margin-bottom: 30px;  /* Space below header */
+  pointer-events: none; /* Prevent hover events on the container */
+}
+
+.header-container h1 {
+  pointer-events: auto; /* Allow hover only on the text itself */
 }
 
 h1 {
   color: #f5f5f5;
   font-size: 8rem;
-  text-shadow: 0 0 3px #44444433; /* faint subtle shadow */
+  text-shadow: 0 0 3px #44444433;
   position: relative;
   transition: transform 0.3s ease, text-shadow 0.3s ease;
   z-index: 1;
-}
-
-.overlay {
-  padding-top: 0;      /* reduce top padding */
-  margin-top: -400px;   /* pull it up */
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  
-  padding: 2rem 4rem;
- 
   text-align: center;
-
+  margin-top: 10px;
+  margin-bottom : 30px;
 }
 
 h1:hover {
   transform: scale(1.08);
-  text-shadow: 
+  text-shadow:
     0 0 10px #ffd700,
     0 0 20px #ffae00,
     0 0 30px #ffaa00;
 }
 
-/* Sparkle effect */
-h1::after {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(255,215,0,0.6) 0%, transparent 80%);
-  opacity: 0;
-  pointer-events: none;
-  animation: sparkle 3s ease-in-out;
-  z-index: -1;
-}
-
-h1:hover::after {
-  opacity: 1;
-}
-
-@keyframes sparkle {
-  0% {
-    text-shadow: 0 0 4px #fff5cc, 0 0 8px #ffeb3b, 0 0 12px #ffc107;
-    color: #fff5cc;
-  }
-  50% {
-    text-shadow: 0 0 6px #ffe066, 0 0 12px #ffd54f, 0 0 18px #ffca28;
-    color: #ffffe0;
-  }
-  100% {
-    text-shadow: 0 0 4px #fff5cc, 0 0 8px #ffeb3b, 0 0 12px #ffc107;
-    color: #fff5cc;
-  }
-}
-
 .button-group {
-  position: fixed;     /* Fixes position relative to viewport */
-  top: 20px;           /* Distance from top */
-  right: 20px;          /* Distance from right */
+  position: fixed;
+  top: 20px;
+  right: 20px;
   display: flex;
-  flex-direction: column;  /* Stack buttons vertically */
-  gap: 20px;              /* Space between buttons */
-  z-index: 10000;         /* Make sure buttons stay on top */
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1000;
 }
 
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  
-  background: rgba(25, 0, 40, 0.85);
+  background: rgba(35, 0, 40, 0.719);
   color: white;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
   text-align: center;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* subtle shadow */
-  font-family: 'HarryPotter', sans-serif; /* mystical font */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.709);
+  font-family: 'HarryPotter', sans-serif;
+  will-change: transform;
 }
-
-.btn:hover {
-  background-color: #6b4c1a;  /* Slightly lighter on hover */
-}
-
 
 .btn:hover {
   background-color: #c28f2e;
   transform: scale(1.15);
-  cursor: pointer;
-  box-shadow: 0 0 10px 3px rgba(194, 143, 46, 0.8); /* warm golden glow */
+  cursor: none;
+  box-shadow: 0 0 10px 3px rgba(194, 143, 46, 0.8);
   transition: 1s, background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-
-
-.bottom-image {
-  display: flex;                 /* Flexbox lays them side by side */
-  justify-content: center;      /* Center all images horizontally */
-  align-items: center;          /* Vertically align (if different heights) */
-  gap: 20px;                    /* Space between images */
-  flex-wrap: wrap;              /* Allows wrapping on small screens */
+/* Image grid (2x2 layout) */
+.image-grid {
+  position: fixed;
+  display: grid;
+  grid-template-columns: repeat(0, 1fr);
+  gap: 30px;
+  padding: 10px;
+  max-width: 1000px;
+  margin: auto;
+  margin-left: 20px;
+  margin-top: -150px;
+  
 }
 
-.bottom-image img {
-  width: 250px;                  /* Size of each image */
-  height: 150px;
-  transition: transform 0.2s ease;
-  cursor: pointer;
-}
-
-.bottom-image img:hover {
-  transform: scale(1.1);        /* Slight grow effect on hover */
-}
-
-.bottom-image {
+.image-wrapper {
+  position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 20px 0;
-  z-index: 10;
-  
-}
-footer {
-  background-color: rgba(0, 0, 0, 0.48);
-  backdrop-filter: blur(3px);
-  width: 100%;
-  padding: 20px 0;
-  position: relative; /* keep normal flow */
-}
-
-.bottom-image img:hover {
-  transform: scale(1.3); /* your existing scale effect */
-  box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.7); /* golden glow */
-  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.7)); /* subtle shadow glow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-}
-
-body {
-  opacity: 0; /*fade in effect */
-  transition: opacity 1s ease-in;
-}
-
-body.fade-in {
-  opacity: 1;
-}
-
-.image-wrapper .tooltip {
-  position: absolute;
-  bottom: 110%;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  background: rgba(25, 0, 40, 0.85); /* deep purple */
-  color: #fbeaff;
-  padding: 6px 12px;
-  border-radius: 10px;
-  white-space: nowrap;
-  font-size: 1.5rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  box-shadow: 0 0 12px #8967bd;
-  font-family: 'HarryPotter', fantasy; /* optional mystical font */
-  letter-spacing: 1px;
-  z-index: 10; /* ensure tooltip is above other elements */
-  
-}
-
-.image-wrapper:hover .tooltip {
-  opacity: 1;
+  width: 300px;       /* Reserve space to avoid page shift when hovering (image 200px + padding) */
+  height: 160px;
+  border-radius: 50%;
+  overflow: visible;  /* Allow shadows and tooltips to show */
 }
 
 .image-wrapper img {
   width: 150px;
-  height: 100px;
-  border-radius: 15px; /* try 12px or 50% */
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  padding: 5px;
+  cursor: none;
+  transform-origin: center center; /* scale from center */
+  will-change: transform;
 }
 
-
-.image-wrapper {
-  position: relative;
-  display: inline-block;
-  margin: 0 10px; /* space between images */
+.image-wrapper:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.7));
 }
 
+/* Tooltip styling */
+.tooltip {
+  position: absolute;
+  top: 60px;
+  left: 26%;
+  transform: translateX(-50%);
+  background: rgba(25, 0, 40, 0.85);
+  color: #fbeaff;
+  padding: 6px 12px;
+  border-radius: 10px;
+  white-space: nowrap;
+  font-size: 1.3rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 12px #8967bd;
+  font-family: 'HarryPotter', fantasy;
+  letter-spacing: 1px;
+  z-index: 10;
+}
+
+.image-wrapper:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+  transition: ease-in-out 0.7s;
+}
+
+/* Wand cursor */
+.wand-cursor {
+  position: fixed;
+  width: 40px;
+  height: auto;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.05s linear;
+}
+
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fffacd, #f0e130);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Footer */
+footer {
+  text-align: right;
+  color: #fff;
+  font-size: 1.2rem;
+  z-index: 1000;
+}
+
+.left-blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: 
+    linear-gradient(135deg, rgba(80,60,120,0.18) 0%, rgba(0,0,0,0.12) 100%),
+    radial-gradient(circle at 60% 20%, rgba(255,255,255,0.12) 0%, transparent 70%),
+    rgba(0, 0, 0, 0.085);
+  backdrop-filter: blur(5px) brightness(1.07) saturate(1.2);
+  -webkit-backdrop-filter: blur(5px) brightness(1.07) saturate(1.2);
+  box-shadow:
+    8px 0 24px 8px rgba(60, 40, 100, 0.18),
+    0 0 40px 0 rgba(0,0,0,0.12) inset;
+  border-right: 2px solid rgba(200,180,255,0.12);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/*
+.right-blur-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 500px;              /* Width of your blur bar 
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.085);  /* Slightly dark 
+  backdrop-filter: blur(5px);             /* Blur the background behind 
+  -webkit-backdrop-filter: blur(8px);     /* Safari support 
+  pointer-events: none;                   /* So it doesn’t block clicks 
+  z-index: 0;                            /* Behind main content (adjust if needed)
+} */

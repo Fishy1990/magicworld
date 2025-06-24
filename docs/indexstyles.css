@@ -235,6 +235,39 @@ footer {
   /* Rounded corners on the right side */
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
+}
+
+
+  /*QUIZZ LINK STYLES*/
+
+
+
+.quizz:hover {
+  transform: scale(1.05);
+  box-shadow: none;
+}
+
+.quizz a {
+  display: inline-block;
+  color: #f8e9b8;
+  background: #2a1b05;
+  font-family: 'Harry P', 'Cinzel', 'Georgia', serif;
+  font-size: 1.6em;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 0px 30px 0px 30px;
+  border: 2px solid #bca15c;
+  letter-spacing: 1.5px;
+  box-shadow: 0 2px 8px rgba(50,30,0,0.5);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.quizz a:hover {
+  background: #4e370f;
+  color: #fff6d6;
+  box-shadow: 0 4px 16px #c9b87a, 0 1px 0 #fff inset;
+  text-shadow: 0 0 8px #ffe;
+}
 
 /* RESPONSIVE TWEAKS FOR DIFFERENT DISPLAYS */
 

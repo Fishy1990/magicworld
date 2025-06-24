@@ -59,7 +59,7 @@ h1:hover {
     0 0 30px #ffaa00;
 }
 
-.button-group {
+.button-group { /*this is the position for the buttons */
   position: fixed;
   top: 20px;
   right: 20px;
@@ -70,7 +70,7 @@ h1:hover {
 }
 
 .btn {
-  display: inline-block;
+  display: inline-block; /* This is the main styling for the buttons that are creates */
   padding: 10px 20px;
   background: rgba(35, 0, 40, 0.719);
   color: white;
@@ -85,7 +85,7 @@ h1:hover {
 }
 
 .btn:hover {
-  background-color: #c28f2e;
+  background-color: #c28f2e; /*this is the hover effect on the buttons*/
   transform: scale(1.15);
   cursor: none;
   box-shadow: 0 0 10px 3px rgba(194, 143, 46, 0.8);

@@ -10,19 +10,13 @@
 
 <body>
 
+  <!-- Left visual blur -->
   <div class="left-blur-overlay"></div>
   <div class="right-blur-overlay"></div>
 
-  <header>
-    <div class="header-container">
-      <h1 id="welcome-text">Welcome to MagiVerse</h1> <!-- Thad to put wrap header because glowing was weird -->
-    </div>
-  </header>
-    
-  <main id="main-content">
-    <div class="button-group" id="button-group"></div>
-
-    <div class="image-grid">
+  <!-- Sidebar section -->
+  <aside class="sidebar">
+    <nav class="image-grid" aria-label="Main navigation">
       <div class="image-wrapper">
         <a href="houses.html">
           <img src="./imgs/darshan-gavali-NYsxhg43RvE-unsplash.jpg" alt="Exterior of Hogwarts Castle representing houses" />
@@ -50,9 +44,21 @@
         </a>
         <span class="tooltip">Wizarding Spells</span>
       </div>
-    </div>
+    </nav>
+  </aside>
+
+  <!-- Main content area -->
+  <div class="button-group" id="button-group"></div>
+
+  <main id="main-content">
+    <header class="header-container">
+      <h1 id="welcome-text">Welcome to MagiVerse</h1>
+    </header>
+
+    <!-- Page-specific content goes here -->
   </main>
 
+  <!-- Footer -->
   <footer role="contentinfo">
     <p>&copy; IEFP PROJECT - 2025</p>
     <p>Afonso F. / Eduardo S. / Francica P.</p>

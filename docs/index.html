@@ -8,18 +8,65 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
+
 <body>
   <div class="landing">
     <div class="stars"></div>
     <div class="overlay"></div>
+
+
     <div class="content">
       <h1>Welcome to MagiVerse</h1>
       <p>Step into the world of magic, mystery, and wizardry.</p>
-      <a href="#" class="cta-button">Enter the Magic</a>
+      <a href="#" class="cta-button" id="open-popup">Enter the Magic</a>
     </div>
+
+    <div id="popup" class="popup hidden">
+      <div class="popup-content">
+        <h2>✨ Work in Progress ✨</h2>
+          <p>GO AWAY YA FILTHY MUGGLE</p>
+            <button id="close-popup">Close</button>
+      </div>
+    </div>
+
     <footer>
       <p>© 2025 MagiVerse · Inspired by the Wizarding World - IEFP Student Project by Afonso F. - Eduardo S. - Francisca R.</p>
     </footer>
   </div>
+
+
+  
+  <script>
+    // this will be put into a js file later for cleaner code
+
+  // Get elements
+  const openBtn = document.getElementById("open-popup");
+  const closeBtn = document.getElementById("close-popup");
+  const popup = document.getElementById("popup");
+  const popupContent = document.querySelector('.popup-content');
+
+  // Open popup with animation
+  openBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  popup.classList.remove("hidden");
+    // Allow the popup to render before adding the animation class
+  setTimeout(() => {
+    popupContent.classList.add('show');
+    }, 10);
+  });
+
+  // Close popup with animation
+  closeBtn.addEventListener("click", function () {
+    popupContent.classList.remove('show');
+    // Wait for the animation to finish before hiding the popup
+    setTimeout(() => {
+      popup.classList.add("hidden");
+    }, 500); // Match this to your CSS transition duration
+  });
+  </script>
+
 </body>
+
+
 </html>
